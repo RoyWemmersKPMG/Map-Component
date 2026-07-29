@@ -100,6 +100,8 @@ function setupAreaSelect(map, dispatch, pointsRef) {
 	let drawing = false;
 	let vertices = [];
 
+	const mapContainer = map.getContainer();
+
 	const previewLayer = L.polyline([], {
 		color: '#2a81cb',
 		weight: 2,
@@ -122,6 +124,7 @@ function setupAreaSelect(map, dispatch, pointsRef) {
 			? 'Click the map to add points, then click here to finish (Esc to cancel)'
 			: 'Draw an area to select the points inside it';
 		button.classList.toggle('leaflet-map-area-control__button--active', drawing);
+		L.DomUtil[drawing ? 'addClass' : 'removeClass'](mapContainer, 'leaflet-map-area-cursor');
 	}
 	setButtonState();
 
@@ -197,6 +200,7 @@ function setupAreaSelect(map, dispatch, pointsRef) {
 			control.remove();
 			previewLayer.remove();
 			resultLayer.remove();
+			L.DomUtil.removeClass(mapContainer, 'leaflet-map-area-cursor');
 		},
 	};
 }

@@ -43,3 +43,18 @@
 	background: #2a81cb;
 	color: #fff;
 }
+
+// Pencil cursor shown over the map while drawing an area. Built as an inline
+// SVG data URI (no extra image asset) since the component's shadow root can't
+// rely on url() paths resolving the way a normal document-scoped stylesheet would.
+$pencil-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23222222' stroke='%23ffffff' stroke-width='1' d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") 2 20, crosshair;
+
+.leaflet-map-canvas.leaflet-map-area-cursor,
+.leaflet-map-canvas.leaflet-map-area-cursor .leaflet-interactive {
+	cursor: $pencil-cursor;
+}
+
+.leaflet-map-canvas.leaflet-map-area-cursor .leaflet-control-container,
+.leaflet-map-canvas.leaflet-map-area-cursor .leaflet-control-container * {
+	cursor: auto;
+}
