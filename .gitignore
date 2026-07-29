@@ -1,0 +1,5 @@
+node_modules/
+.now-cli/
+.tectonic/
+dist/
+*.log

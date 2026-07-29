@@ -1,0 +1,26 @@
+{
+  "name": "leaflet-map",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ServiceNow UI Builder custom component that renders points on a Leaflet map from JSON coordinate data",
+  "module": "src/index.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "deploy": "snc ui-component deploy",
+    "develop": "snc ui-component develop",
+    "generate-update-set": "snc ui-component generate-update-set"
+  },
+  "dependencies": {
+    "@servicenow/sass-kit": "latest",
+    "@servicenow/ui-core": "24.1.1",
+    "@servicenow/ui-renderer-snabbdom": "24.1.1",
+    "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "@babel/runtime": "7.25.7",
+    "ajv": "^6.12.6",
+    "sass": "1.53.0"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "components": {
+    "x-1539117-leaflet-map": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Leaflet Map",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "Renders points on an interactive Leaflet map from JSON coordinate data",
+        "category": "primitives"
+      },
+      "properties": [
+        {
+          "name": "points",
+          "label": "Points",
+          "description": "JSON array of points, e.g. [{\"lat\":52.37,\"lng\":4.9,\"label\":\"Amsterdam\"}]",
+          "fieldType": "json",
+          "defaultValue": "[]"
+        },
+        {
+          "name": "centerLat",
+          "label": "Center latitude",
+          "description": "Initial map center latitude, used before points render (ignored once autoFit runs)",
+          "fieldType": "number",
+          "defaultValue": 20
+        },
+        {
+          "name": "centerLng",
+          "label": "Center longitude",
+          "description": "Initial map center longitude, used before points render (ignored once autoFit runs)",
+          "fieldType": "number",
+          "defaultValue": 0
+        },
+        {
+          "name": "zoomLevel",
+          "label": "Zoom level",
+          "description": "Initial map zoom level, used before points render (ignored once autoFit runs)",
+          "fieldType": "number",
+          "defaultValue": 2
+        },
+        {
+          "name": "tileLayerUrl",
+          "label": "Tile layer URL",
+          "description": "Tile provider URL template, e.g. an internal tile server or Mapbox",
+          "fieldType": "url",
+          "defaultValue": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        },
+        {
+          "name": "attribution",
+          "label": "Attribution",
+          "description": "Map attribution text/HTML shown in the corner of the map",
+          "fieldType": "html",
+          "defaultValue": "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors"
+        },
+        {
+          "name": "autoFit",
+          "label": "Auto-fit to points",
+          "description": "When true, the map zooms/pans to fit all supplied points automatically",
+          "fieldType": "boolean",
+          "defaultValue": true
+        },
+        {
+          "name": "enableAreaSelect",
+          "label": "Enable area select",
+          "description": "Show a \"Draw area\" control that lets the user trace a shape on the map and select the points inside it",
+          "fieldType": "boolean",
+          "defaultValue": true
+        }
+      ],
+      "actions": [
+        {
+          "name": "AREA_SELECTED",
+          "label": "Area selected",
+          "description": "Fires after the user finishes drawing a shape on the map, with the points found inside it",
+          "payload": [
+            {
+              "name": "points",
+              "description": "The point objects (lat, lng, label, ...) that fall inside the drawn area"
+            },
+            {
+              "name": "polygon",
+              "description": "The {lat, lng} vertices describing the drawn area"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scopeName": "x_1539117_leafle_0"
+}
